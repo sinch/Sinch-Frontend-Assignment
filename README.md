@@ -1,6 +1,6 @@
 # Sinch Frontend Assignment
 
-Your assignment is to develop a web application to manage configuration for Sinch applications. The code for API to your frontend is contained in this repository. To start the service on your local development machine, you can clone this repository and build the docker image using the following command.
+Your assignment is to develop a web application based on [React library](https://reactjs.org/) to manage configuration for Sinch applications. The code for API to your frontend is contained in this repository. To start the service on your local development machine, you can clone this repository and build the docker image using the following command.
 
 ```
 docker build -t sinch.config.mgmt -f .\Dockerfile .
