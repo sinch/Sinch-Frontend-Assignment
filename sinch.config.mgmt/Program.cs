@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(
         name: CorsPolicy,
-        builder => builder.AllowAnyOrigin());
+        builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
 
 builder.Services.AddDbContext<ConfigDbContext>(options =>
