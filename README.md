@@ -3,13 +3,20 @@
 Your assignment is to develop a web application based on [React library](https://reactjs.org/) to manage configuration for Sinch applications. The code for API to your frontend is contained in this repository. To start the service on your local development machine, you can clone this repository and build the docker image using the following command.
 
 ```
-docker build -t sinch.config.mgmt -f .\Dockerfile .
+docker build -t sinch.config.mgmt -f Dockerfile .
 ```
 
 Once the build is completed run the following command to start the container:
 
 ```
 docker run --name sinch.config.mgmt -e Sinch_Config_Mgmt_MockErrorRate='0.2' -p 8080:8080 -d sinch.config.mgmt 
+```
+
+If you are using a Mac computer with Apple silicon:
+
+```
+docker build --platform linux/amd64 -t sinch.config.mgmt -f Dockerfile .
+docker run --platform linux/amd64 --name sinch.config.mgmt -e Sinch_Config_Mgmt_MockErrorRate='0.2' -p 8080:8080 -d sinch.config.mgmt
 ```
 
 Alternativly you can download the perbuilt binary files to match your development machines operating system from the GitHub releases [page](https://github.com/sinch/Sinch-Frontend-Assignment/releases/).
