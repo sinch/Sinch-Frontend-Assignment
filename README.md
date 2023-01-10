@@ -12,7 +12,7 @@ Once the build is completed run the following command to start the container:
 docker run --name sinch.config.mgmt -e Sinch_Config_Mgmt_MockErrorRate='0.2' -p 8080:8080 -d sinch.config.mgmt 
 ```
 
-If you are using a Mac computers with Apple silicon:
+If you are using a Mac computer with Apple silicon:
 
 ```
 docker run --platform linux/amd64 --name sinch.config.mgmt -e Sinch_Config_Mgmt_MockErrorRate='0.2' -p 8080:8080 -d sinch.config.mgmt
