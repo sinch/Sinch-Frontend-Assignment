@@ -12,6 +12,12 @@ Once the build is completed run the following command to start the container:
 docker run --name sinch.config.mgmt -e Sinch_Config_Mgmt_MockErrorRate='0.2' -p 8080:8080 -d sinch.config.mgmt 
 ```
 
+If you are using a Mac computers with Apple silicon:
+
+```
+docker run --platform linux/amd64 --name sinch.config.mgmt -e Sinch_Config_Mgmt_MockErrorRate='0.2' -p 8080:8080 -d sinch.config.mgmt
+```
+
 Alternativly you can download the perbuilt binary files to match your development machines operating system from the GitHub releases [page](https://github.com/sinch/Sinch-Frontend-Assignment/releases/).
 
 Once the server is up and running you can open up the Swagger documentation at [http://localhost:8080/swagger](http://localhost:8080/swagger).
