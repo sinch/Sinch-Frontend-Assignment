@@ -1,11 +1,18 @@
-# fly.toml file generated for config-mgmt on 2022-09-27T14:19:29+02:00
+# fly.toml app configuration file generated for config-mgmt on 2023-04-28T10:21:54+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = "config-mgmt"
+app = "config-mgmt-dev"
 kill_signal = "SIGINT"
 kill_timeout = 5
+primary_region = "arn"
 processes = []
 
+[build]
+
 [env]
+  Sinch_Config_Mgmt_MockErrorRate = "0"
 
 [experimental]
   allowed_public_ports = []
@@ -21,6 +28,16 @@ processes = []
     soft_limit = 20
     type = "connections"
 
+  [[services.http_checks]]
+    grace_period = "5s"
+    interval = 10000
+    method = "get"
+    path = "/api/health/ping"
+    protocol = "http"
+    restart_limit = 0
+    timeout = 2000
+    tls_skip_verify = false
+
   [[services.ports]]
     force_https = true
     handlers = ["http"]
@@ -35,13 +52,3 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
-
-  [[services.http_checks]]
-    interval = 10000
-    grace_period = "5s"
-    method = "get"
-    path = "/api/health/ping"
-    protocol = "http"
-    restart_limit = 0
-    timeout = 2000
-    tls_skip_verify = false
